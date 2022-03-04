@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
@@ -40,6 +42,27 @@ public class Main {
 			output = output + '\n';
 		}
 
+		BufferedWriter writer = null;
+		try
+		{
+		    writer = new BufferedWriter( new FileWriter( "art.txt"));
+		    writer.write( output);
+
+		}
+		catch ( IOException e)
+		{
+		}
+		finally
+		{
+		    try
+		    {
+		        if ( writer != null)
+		        writer.close( );
+		    }
+		    catch ( IOException e)
+		    {
+		    }
+		}
 		System.out.println(output);
 		
 	}
